@@ -3,12 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Lo que miran Las Chicas Soqueff en Netflix</title>
+  <title>JS Bin</title>
 </head>
 <body>
-</head>
-<body>
-<h1>Horas que pasan las Chicas en Netflix a través de los años </h1>h1>
   <div class="flourish-embed flourish-chart" data-src="visualisation/28139724">
     <script src="https://public.flourish.studio/resources/embed.js">
     </script><noscript><img src="https://public.flourish.studio/visualisation/28139724/thumbnail" width="100%" alt="visualization" />
