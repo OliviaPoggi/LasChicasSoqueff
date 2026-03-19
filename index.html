@@ -1,21 +1,233 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Infovis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Chicas Soqueff en Netflix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-sil: #027d8d;
+            --color-uma: #e43f77;
+            --color-olu: #68d1d4;
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Fondo animado con gradientes */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(2, 125, 141, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(228, 63, 119, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(104, 209, 212, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, 10%) rotate(5deg); }
+            66% { transform: translate(-5%, 5%) rotate(-5deg); }
+        }
+
+        header {
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--color-sil) 0%, var(--color-uma) 50%, var(--color-olu) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .viz-container {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .viz-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-sil), var(--color-uma), var(--color-olu));
+        }
+
+        .flourish-embed {
+            width: 100%;
+            min-height: 500px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .viz-container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Infovis</title>
+    <header>
+        <h1>Las Chicas Soqueff en Netflix</h1>
+        <p class="subtitle">Análisis de consumo 2021-2026</p>
+    </header>
 
-<h1> Las Chicas Soqueff en Netflix </h1>
-    <div class="flourish-embed flourish-chart" data-src="story/3620129">
-      <script src="https://public.flourish.studio/resources/embed.js">
-      </script><noscript><img src="https://public.flourish.studio/story/3620129/thumbnail" width="100%" alt="visualization" />
-      </noscript>
-  </div>
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Consumo por Año</h2>
+            <p class="section-description">
+                Observa cómo cambian (o no tanto) los patrones de visualización de cada perfil.
+            </p>
+            <div class="viz-container">
+                <div class="flourish-embed flourish-chart" data-src="visualisation/28139724">
+                    <script src="https://public.flourish.studio/resources/embed.js"></script>
+                    <noscript>
+                        <img src="https://public.flourish.studio/visualisation/28139724/thumbnail" width="100%" alt="visualization" />
+                    </noscript>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Preferencias de Género</h2>
+            <p class="section-description">
+                ¿Qué tipo de contenido prefiere cada perfil? Mirá los géneros favoritos de cada Chica Soqueff.
+            </p>
+            <div class="viz-container">
+                <div class="flourish-embed flourish-chart" data-src="visualisation/28127560">
+                    <script src="https://public.flourish.studio/resources/embed.js"></script>
+                    <noscript>
+                        <img src="https://public.flourish.studio/visualisation/28127560/thumbnail" width="100%" alt="visualization" />
+                    </noscript>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Series Más Vistas</h2>
+            <p class="section-description">
+                Las series favoritas de cada perfil revelan personalidades, humores y <em>guilty pleasures</em>.
+            </p>
+            <div class="viz-container">
+                <div class="flourish-embed flourish-chart" data-src="visualisation/28127367">
+                    <script src="https://public.flourish.studio/resources/embed.js"></script>
+                    <noscript>
+                        <img src="https://public.flourish.studio/visualisation/28127367/thumbnail" width="100%" alt="visualization" />
+                    </noscript>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Análisis de Netflix 2021-2026 | Visualización de datos</p>
+        <p style="margin-top: 10px;">Las Chicas Soqueff</p>
+    </footer>
 </body>
 </html>
-
