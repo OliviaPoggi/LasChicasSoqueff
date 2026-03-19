@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
-</head>
-<body>
-  <div class="flourish-embed flourish-chart" data-src="visualisation/28139724">
-    <script src="https://public.flourish.studio/resources/embed.js">
-    </script><noscript><img src="https://public.flourish.studio/visualisation/28139724/thumbnail" width="100%" alt="visualization" />
-    </noscript></div>
+  <title>Infovis</title>
+
+<h1> Las Chicas Soqueff en Netflix </h1>
+    <div class="flourish-embed flourish-chart" data-src="story/3620129">
+      <script src="https://public.flourish.studio/resources/embed.js">
+      </script><noscript><img src="https://public.flourish.studio/story/3620129/thumbnail" width="100%" alt="visualization" />
+      </noscript>
+  </div>
 </body>
 </html>
+
