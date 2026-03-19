@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Infovis</title>
+</head>
+<body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Infovis</title>
 
 <h1> Las Chicas Soqueff en Netflix </h1>
     <div class="flourish-embed flourish-chart" data-src="story/3620129">
