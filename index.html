@@ -253,16 +253,14 @@
     <h2 class="section-title">Consumo semanal por usuario</h2>
     <p class="section-description">
         ¿Cómo se distribuye el consumo a lo largo de la semana? Este heatmap muestra la proporción de tiempo de visualización de cada perfil según el día.
-    </p>
-    <div class="viz-container">
-        <tableau-viz
-            src="https://us-east-1.online.tableau.com/t/opoggisoqueff-a53cd58156/views/TP-viz/Hoja1"
-            toolbar="bottom"
-            hide-tabs
-            style="width: 100%; height: 750px;">
-        </tableau-viz>
+    < </p>
+            <div class="viz-container">
+                <script type='module' src='https://us-east-1.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script>
+                <tableau-viz id='tableau-viz' src='https://us-east-1.online.tableau.com/t/opoggisoqueff-a53cd58156/views/TP-viz/Hoja1' width='100%' height='754' hide-tabs toolbar='bottom'></tableau-viz>
+            </div>
+        </section>
     </div>
-</section>
+ 
 
     <footer>
         <p>Análisis de Netflix 2021-2026 | Visualización de datos</p>
